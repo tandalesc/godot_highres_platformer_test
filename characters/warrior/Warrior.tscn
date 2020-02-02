@@ -1,0 +1,129 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://characters/warrior/sprites/Run/Run-4.png" type="Texture" id=1]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-1.png" type="Texture" id=2]
+[ext_resource path="res://characters/warrior/sprites/Attack1/Attack1-2.png" type="Texture" id=3]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-6.png" type="Texture" id=4]
+[ext_resource path="res://characters/warrior/sprites/Hit/Hit-2.png" type="Texture" id=5]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-5.png" type="Texture" id=6]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-3.png" type="Texture" id=7]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-7.png" type="Texture" id=8]
+[ext_resource path="res://characters/warrior/sprites/Fall/Fall-1.png" type="Texture" id=9]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-2.png" type="Texture" id=10]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-3.png" type="Texture" id=11]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-5.png" type="Texture" id=12]
+[ext_resource path="res://characters/warrior/sprites/Attack2/Attack2-3.png" type="Texture" id=13]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-4.png" type="Texture" id=14]
+[ext_resource path="res://characters/warrior/sprites/Jump/Jump-1.png" type="Texture" id=15]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-0.png" type="Texture" id=16]
+[ext_resource path="res://characters/warrior/sprites/Attack1/Attack1-0.png" type="Texture" id=17]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-4.png" type="Texture" id=18]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-1.png" type="Texture" id=19]
+[ext_resource path="res://characters/warrior/sprites/Run/Run-2.png" type="Texture" id=20]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-0.png" type="Texture" id=21]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-3.png" type="Texture" id=22]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-6.png" type="Texture" id=23]
+[ext_resource path="res://characters/warrior/sprites/Idle/Idle-1.png" type="Texture" id=24]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-0.png" type="Texture" id=25]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-5.png" type="Texture" id=26]
+[ext_resource path="res://characters/warrior/sprites/Attack2/Attack2-1.png" type="Texture" id=27]
+[ext_resource path="res://characters/warrior/sprites/Hit/Hit-1.png" type="Texture" id=28]
+[ext_resource path="res://characters/warrior/sprites/Attack2/Attack2-2.png" type="Texture" id=29]
+[ext_resource path="res://characters/warrior/sprites/Fall/Fall-0.png" type="Texture" id=30]
+[ext_resource path="res://characters/warrior/sprites/Hit/Hit-0.png" type="Texture" id=31]
+[ext_resource path="res://characters/warrior/sprites/Attack1/Attack1-1.png" type="Texture" id=32]
+[ext_resource path="res://characters/warrior/sprites/Attack2/Attack2-0.png" type="Texture" id=33]
+[ext_resource path="res://characters/warrior/sprites/Attack1/Attack1-3.png" type="Texture" id=34]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-2.png" type="Texture" id=35]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-7.png" type="Texture" id=36]
+[ext_resource path="res://characters/warrior/sprites/Death/Death-8.png" type="Texture" id=37]
+[ext_resource path="res://characters/warrior/sprites/Jump/Jump-0.png" type="Texture" id=38]
+[ext_resource path="res://characters/warrior/WarriorBodyController.gd" type="Script" id=39]
+[ext_resource path="res://characters/warrior/WarriorController.gd" type="Script" id=40]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.2
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 59.4127
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 28 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "hit",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 2 ), ExtResource( 35 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "die",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "attack2",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 32 ), ExtResource( 3 ), ExtResource( 34 ) ],
+"loop": false,
+"name": "attack1",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "fall",
+"speed": 12.0
+} ]
+
+[node name="Warrior" type="RigidBody2D"]
+mode = 2
+mass = 3.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 8.0
+custom_integrator = true
+contacts_reported = 3
+contact_monitor = true
+linear_velocity = Vector2( -50, 0 )
+script = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="AirTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="HangTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_v_enabled = true
+smoothing_speed = 15.0
+
+[node name="PhysicalBody" type="Node2D" parent="."]
+script = ExtResource( 39 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PhysicalBody"]
+position = Vector2( 6, -17 )
+frames = SubResource( 3 )
+animation = "idle"
+playing = true

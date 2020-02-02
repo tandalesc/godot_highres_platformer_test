@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world/sprites/Cave - SmallRocks.png" type="Texture" id=1]
+[ext_resource path="res://world/bodies/HeavyObject.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.6
+
+[node name="MediumRock" type="RigidBody2D" groups=[
+"bodies",
+]]
+position = Vector2( -309.072, -193.76 )
+mass = 50.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 4.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+damage = 30.0
+speed = 35.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 91, 520, 200, 180 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 91.6477, 20.8566, 66.7949, 50.454, 54.1425, 61.5248, 31.3232, 74.403, -2.56711, 87.7464, -14.8339, 88.4974, -53.1364, 78.4837, -69.6589, 58.206, -93.9422, 20.6545, -96.696, 2.37952, -96.9463, -12.3907, -93.9422, -25.9092, -71.6617, -56.9517, -53.637, -78.7315, -10.0774, -89.2459, 11.9528, -83.488, 41.7436, -71.2213, 64.5248, -55.9503, 90.5604, -28.1623, 96.819, -13.8928, 97.57, 7.38638 )

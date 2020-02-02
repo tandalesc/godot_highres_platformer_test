@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://world/platforms/LargeRockPlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/warrior/Warrior.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/platforms/SmallRockPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/background/ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player/HUD.gd" type="Script" id=5]
+[ext_resource path="res://world/bodies/MediumRock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/bodies/SmallRock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://touchscreencontrols/TouchscreenControls.tscn" type="PackedScene" id=8]
+[ext_resource path="res://world/platforms/OneWayPlatform.tscn" type="PackedScene" id=9]
+
+[node name="Scene01" type="Node2D"]
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2( 638, 0 )
+
+[node name="Warrior" parent="Characters" instance=ExtResource( 2 )]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2( 638, 0 )
+
+[node name="Platforms" type="Node2D" parent="World"]
+
+[node name="LargeRockPlatform" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( 5.64111, 391.945 )
+
+[node name="LargeRockPlatform3" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( -1011.62, -85 )
+
+[node name="LargeRockPlatform7" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( -1900.5, -85 )
+
+[node name="LargeRockPlatform4" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( 1804.85, -98.692 )
+
+[node name="LargeRockPlatform6" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( 1816.77, 523.876 )
+
+[node name="LargeRockPlatform5" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3426.23, 267.147 )
+
+[node name="LargeRockPlatform2" parent="World/Platforms" instance=ExtResource( 1 )]
+position = Vector2( 735.452, 192.159 )
+
+[node name="SmallRockPlatform" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1440.12, -1.58892 )
+
+[node name="SmallRockPlatform4" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2351.91, 465.944 )
+
+[node name="SmallRockPlatform7" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( 1098.14, 355.537 )
+
+[node name="SmallRockPlatform5" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2819.38, 336.046 )
+
+[node name="SmallRockPlatform6" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2563.96, -155.399 )
+
+[node name="SmallRockPlatform2" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -366.107, 224.337 )
+
+[node name="SmallRockPlatform3" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -642.938, -59.6714 )
+
+[node name="SmallRockPlatform8" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -2428.06, -40.0277 )
+
+[node name="SmallRockPlatform9" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -2264.77, 460.729 )
+
+[node name="SmallRockPlatform10" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -1822.82, 467.084 )
+
+[node name="SmallRockPlatform11" parent="World/Platforms" instance=ExtResource( 3 )]
+position = Vector2( -1452.36, 356.289 )
+
+[node name="OneWayPlatform" parent="World/Platforms" instance=ExtResource( 9 )]
+position = Vector2( 1176.06, 44 )
+
+[node name="OneWayPlatform3" parent="World/Platforms" instance=ExtResource( 9 )]
+position = Vector2( -1458.88, -233 )
+
+[node name="OneWayPlatform4" parent="World/Platforms" instance=ExtResource( 9 )]
+position = Vector2( -1461.79, 38.0183 )
+
+[node name="OneWayPlatform2" parent="World/Platforms" instance=ExtResource( 9 )]
+position = Vector2( 1362.62, 375 )
+scale = Vector2( -1, 1 )
+
+[node name="RigidBodies" type="Node2D" parent="World"]
+
+[node name="MediumRock" parent="World/RigidBodies" instance=ExtResource( 6 )]
+position = Vector2( -407.12, -540.053 )
+linear_velocity = Vector2( 0, 30 )
+angular_velocity = -30.0
+
+[node name="SmallRock" parent="World/RigidBodies" instance=ExtResource( 7 )]
+position = Vector2( -584.705, -700.082 )
+rotation = 1.5708
+linear_velocity = Vector2( 100, 30 )
+angular_velocity = -10.0
+
+[node name="MediumRock2" parent="World/RigidBodies" instance=ExtResource( 6 )]
+position = Vector2( 2001.8, -386.361 )
+
+[node name="MediumRock3" parent="World/RigidBodies" instance=ExtResource( 6 )]
+position = Vector2( 353.489, -214.11 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="TouchscreenControls" parent="HUD" instance=ExtResource( 8 )]
+
+[node name="HealthBar" type="Node2D" parent="HUD"]
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/HealthBar"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 450.0
+margin_bottom = 60.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
